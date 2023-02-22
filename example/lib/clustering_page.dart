@@ -189,8 +189,8 @@ class _ClusteringPageState extends State<ClusteringPage> {
           center: points[0],
           zoom: 5,
           maxZoom: 15,
-          onTap: (_, __) => _popupController
-              .hideAllPopups(), // Hide popup when the map is tapped.
+          // onTap: (_, __) => _popupController
+          //     .hideAllPopups(), // Hide popup when the map is tapped.
         ),
         children: <Widget>[
           TileLayer(
@@ -211,25 +211,29 @@ class _ClusteringPageState extends State<ClusteringPage> {
                 maxZoom: 15,
               ),
               markers: markers,
+              showPolygon: false,
+              spiderfyCluster: false,
               polygonOptions: const PolygonOptions(
                   borderColor: Colors.blueAccent,
                   color: Colors.black12,
                   borderStrokeWidth: 3),
-              popupOptions: PopupOptions(
-                  popupState: PopupState(),
-                  popupSnap: PopupSnap.markerTop,
-                  popupController: _popupController,
-                  popupBuilder: (_, marker) => Container(
-                        width: 200,
-                        height: 100,
-                        color: Colors.white,
-                        child: GestureDetector(
-                          onTap: () => debugPrint('Popup tap!'),
-                          child: Text(
-                            'Container popup for marker at ${marker.point}',
-                          ),
-                        ),
-                      )),
+              // popupOptions: PopupOptions(
+              //   popupState: PopupState(),
+              //   popupSnap: PopupSnap.markerTop,
+              //   buildPopupOnHover: false,
+              //   popupController: _popupController,
+              //   popupBuilder: (_, marker) => Container(
+              //     width: 200,
+              //     height: 100,
+              //     color: Colors.white,
+              //     child: GestureDetector(
+              //       onTap: () => debugPrint('Popup tap!'),
+              //       child: Text(
+              //         'Container popup for marker at ${marker.point}',
+              //       ),
+              //     ),
+              //   ),
+              // ),
               builder: (context, markers) {
                 return Container(
                   decoration: BoxDecoration(
