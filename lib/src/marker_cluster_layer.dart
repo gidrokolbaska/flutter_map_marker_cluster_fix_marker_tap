@@ -298,6 +298,14 @@ class _MarkerClusterLayerState extends State<MarkerClusterLayer>
         translate: StaticTranslate(_mapCalculator, markerNode.parent!),
         fade: Fade.fadeOut,
         child: ClusterWidget(
+          //TODO: implement cluster rotation
+          rotate: widget.options.rotate != true
+              ? null
+              : Rotate(
+                  angle: -widget.map.rotationRad,
+                  origin: Offset.zero,
+                  alignment: Alignment.center,
+                ),
           cluster: markerNode.parent!,
           builder: widget.options.builder,
           onTap: _onClusterTap(markerNode.parent!),
@@ -321,6 +329,13 @@ class _MarkerClusterLayerState extends State<MarkerClusterLayer>
           size: clusterNode.size(),
           translate: StaticTranslate(_mapCalculator, clusterNode),
           child: ClusterWidget(
+            rotate: widget.options.rotate != true
+                ? null
+                : Rotate(
+                    angle: -widget.map.rotationRad,
+                    origin: Offset.zero,
+                    alignment: Alignment.center,
+                  ),
             cluster: clusterNode,
             builder: widget.options.builder,
             onTap: _onClusterTap(clusterNode),
@@ -340,6 +355,13 @@ class _MarkerClusterLayerState extends State<MarkerClusterLayer>
         translate: StaticTranslate(_mapCalculator, clusterNode),
         fade: Fade.fadeIn,
         child: ClusterWidget(
+          rotate: widget.options.rotate != true
+              ? null
+              : Rotate(
+                  angle: -widget.map.rotationRad,
+                  origin: Offset.zero,
+                  alignment: Alignment.center,
+                ),
           cluster: clusterNode,
           builder: widget.options.builder,
           onTap: _onClusterTap(clusterNode),
@@ -378,6 +400,13 @@ class _MarkerClusterLayerState extends State<MarkerClusterLayer>
             ),
             fade: Fade.fadeOut,
             child: ClusterWidget(
+              rotate: widget.options.rotate != true
+                  ? null
+                  : Rotate(
+                      angle: -widget.map.rotationRad,
+                      origin: Offset.zero,
+                      alignment: Alignment.center,
+                    ),
               cluster: child,
               builder: widget.options.builder,
               onTap: _onClusterTap(child),
@@ -406,6 +435,13 @@ class _MarkerClusterLayerState extends State<MarkerClusterLayer>
       ),
       fade: Fade.fadeIn,
       child: ClusterWidget(
+        rotate: widget.options.rotate != true
+            ? null
+            : Rotate(
+                angle: -widget.map.rotationRad,
+                origin: Offset.zero,
+                alignment: Alignment.center,
+              ),
         cluster: clusterNode,
         builder: widget.options.builder,
         onTap: _onClusterTap(clusterNode),
@@ -418,6 +454,13 @@ class _MarkerClusterLayerState extends State<MarkerClusterLayer>
       translate: StaticTranslate(_mapCalculator, clusterNode.parent!),
       fade: Fade.fadeOut,
       child: ClusterWidget(
+        rotate: widget.options.rotate != true
+            ? null
+            : Rotate(
+                angle: -widget.map.rotationRad,
+                origin: Offset.zero,
+                alignment: Alignment.center,
+              ),
         cluster: clusterNode.parent!,
         builder: widget.options.builder,
         onTap: _onClusterTap(clusterNode.parent!),
@@ -437,6 +480,13 @@ class _MarkerClusterLayerState extends State<MarkerClusterLayer>
         translate: StaticTranslate(_mapCalculator, cluster),
         fade: Fade.almostFadeOut,
         child: ClusterWidget(
+          rotate: widget.options.rotate != true
+              ? null
+              : Rotate(
+                  angle: -widget.map.rotationRad,
+                  origin: Offset.zero,
+                  alignment: Alignment.center,
+                ),
           cluster: cluster,
           builder: widget.options.builder,
           onTap: _onClusterTap(cluster),
