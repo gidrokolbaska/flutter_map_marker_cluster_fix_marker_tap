@@ -298,7 +298,6 @@ class _MarkerClusterLayerState extends State<MarkerClusterLayer>
         translate: StaticTranslate(_mapCalculator, markerNode.parent!),
         fade: Fade.fadeOut,
         child: ClusterWidget(
-          //TODO: implement cluster rotation
           rotate: widget.options.rotate != true
               ? null
               : Rotate(
@@ -761,7 +760,7 @@ class _MarkerClusterLayerState extends State<MarkerClusterLayer>
 LatLngBounds _extendBounds(LatLngBounds bounds, double stickonFactor) {
   final sw = bounds.southWest;
   final ne = bounds.northEast;
-  final height = (sw!.latitude - ne!.latitude).abs() * stickonFactor;
+  final height = (sw.latitude - ne.latitude).abs() * stickonFactor;
   final width = (sw.longitude - ne.longitude).abs() * stickonFactor;
 
   // Clamp rather than wrap around. This function is used in the context of
